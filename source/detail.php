@@ -26,13 +26,13 @@ if (isset($_GET['id'])) {
         $list_players_home = '';
         $player_home->getPlayerByIdTeam($row['home_team_id']);
         while ($data_players_home = $player_home->getResult()) {
-            $list_players_home .= '<tr class="text-start"><td>' . $data_players_home['player_position'] . ' | ' . $data_players_home['player_name'] . '</td></tr>';
+            $list_players_home .= '<tr class="text-start"><td>' . htmlspecialchars($data_players_home['player_position']) . ' | ' . htmlspecialchars($data_players_home['player_name']) . '</td></tr>';
         }
 
         $list_players_away = '';
         $player_away->getPlayerByIdTeam($row['away_team_id']);
         while ($data_players_away = $player_away->getResult()) {
-            $list_players_away .= '<tr class="text-start"><td>' . $data_players_away['player_position'] . ' | ' . $data_players_away['player_name'] . '</td></tr>';
+            $list_players_away .= '<tr class="text-start"><td>' . htmlspecialchars($data_players_away['player_position']) . ' | ' . htmlspecialchars($data_players_away['player_name']) . '</td></tr>';
         }
 
         $result_home = '';
@@ -66,29 +66,29 @@ if (isset($_GET['id'])) {
             <div class="row mt-5">
                 <div class="text-center col-4">
                     <img src="assets/uploaded/' . $row['home_team_logo'] . '" alt="' . $row['home_team_name'] . '" style="width:100px;">
-                    <h3 class="card-text mt-4 my-0">' . $row['home_team_name'] . '</h3>
+                    <h3 class="card-text mt-4 my-0">' . htmlspecialchars($row['home_team_name']) . '</h3>
                     <p class="card-text"><span class="badge bg-navy p-2 mt-3">Home Team</span></p>
                 </div>
                 <div class="col-1 text-center">
-                    <h1 class="mt-5"><span class="badge ' . $result_home  . '">' . $row['home_team_score'] . '</span></h1>
+                    <h1 class="mt-5"><span class="badge ' . $result_home  . '">' . htmlspecialchars($row['home_team_score']) . '</span></h1>
                 </div>
                 <div class="col-2 text-center">
                     <h1 class="mt-5"><strong>-</strong></h1>
                 </div>
                 <div class="col-1 text-center">
-                    <h1 class="mt-5"><span class="badge ' . $result_away  . '">' . $row['away_team_score'] . '</span></h1>
+                    <h1 class="mt-5"><span class="badge ' . $result_away  . '">' . htmlspecialchars($row['away_team_score']) . '</span></h1>
                 </div>
                 <div class="text-center col-4">
                     <img src="assets/uploaded/' . $row['away_team_logo'] . '" alt="' . $row['away_team_name'] . '" style="width:100px;">
-                    <h3 class="card-text mt-4 my-0">' . $row['away_team_name'] . '</h3>
+                    <h3 class="card-text mt-4 my-0">' . htmlspecialchars($row['away_team_name']) . '</h3>
                     <p class="card-text"><span class="badge bg-navy p-2 mt-3">Away Team</span></p>
                 </div>
             </div>
             <div class="text-center mt-5 mb-2">
                 <p class="card-text text-navy mt-3 mb-0">Tanggal Pertandingan</p>
-                <p class="card-text text-navy mt-1 mb-0">' . $row['match_date'] . '</p>
+                <p class="card-text text-navy mt-1 mb-0">' . htmlspecialchars($row['match_date']) . '</p>
                 <p class="card-text text-navy mt-3 mb-0">Lokasi Pertandingan</p>
-                <p class="card-text"><span class="badge bg-navy p-2 mt-2">' . $row['match_location'] . '</span></p>
+                <p class="card-text"><span class="badge bg-navy p-2 mt-2">' . htmlspecialchars($row['match_location']) . '</span></p>
             </div>
             <div class="row">
                 <div class="col-6">

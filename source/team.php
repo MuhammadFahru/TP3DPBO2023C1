@@ -55,9 +55,9 @@ while ($div = $team->getResult()) {
     $data .= '<tr>
     <th scope="row">' . $no . '</th>
         <td><img src="assets/uploaded/' . $div['team_logo'] . '" alt="' . $div['team_logo'] . '" width="80%"></td>
-        <td class="text-start ps-3">' . $div['team_name'] . '</td>
-        <td>' . $div['team_founded_date'] . '</td>
-        <td>' . $div['team_home_stadium'] . '</td>
+        <td class="text-start ps-3">' . htmlspecialchars($div['team_name']) . '</td>
+        <td>' . htmlspecialchars($div['team_founded_date']) . '</td>
+        <td>' . htmlspecialchars($div['team_home_stadium']) . '</td>
         <td style="font-size: 22px;">
             <a style = "text-decoration:none;" href="team.php?id=' . $div['team_id'] . '" title="Edit Data">
                 <i class="bi bi-pencil-square text-warning"></i>

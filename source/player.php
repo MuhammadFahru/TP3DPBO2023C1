@@ -62,10 +62,10 @@ $no = 1;
 while ($div = $player->getResult()) {
     $data .= '<tr>
     <th scope="row">' . $no . '</th>
-        <td class="text-start ps-3">' . $div['player_name'] . '</td>
-        <td>' . $div['player_position'] . '</td>
-        <td>' . $div['player_birthdate'] . '</td>
-        <td>' . $div['team_name'] . '</td>
+        <td class="text-start ps-3">' . htmlspecialchars($div['player_name']) . '</td>
+        <td>' . htmlspecialchars($div['player_position']) . '</td>
+        <td>' . htmlspecialchars($div['player_birthdate']) . '</td>
+        <td>' . htmlspecialchars($div['team_name']) . '</td>
         <td style="font-size: 22px;">
             <a style = "text-decoration:none;" href="player.php?id=' . $div['player_id'] . '" title="Edit Data">
                 <i class="bi bi-pencil-square text-warning"></i>

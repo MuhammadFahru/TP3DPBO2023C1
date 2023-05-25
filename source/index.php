@@ -35,17 +35,17 @@ while ($row = $listMatches->getResult()) {
                 <div class="card-body">
                     <div class="d-flex justify-content-start">
                         <img src="assets/uploaded/' . $row['home_team_logo'] . '" alt="' . $row['home_team_name'] . '" style="width:50px; height:50px;" class="me-3 my-2">
-                        <p class="card-text mt-4 my-0">' . $row['home_team_score'] .'</p>
+                        <p class="card-text mt-4 my-0">' . htmlspecialchars($row['home_team_score']) .'</p>
                         <p class="card-text mt-4 my-0 mx-2">|</p>
-                        <p class="card-text mt-4 my-0">' . $row['home_team_name'] .'</p>
+                        <p class="card-text mt-4 my-0">' . htmlspecialchars($row['home_team_name']) .'</p>
                     </div>
                     <div class="d-flex justify-content-start">
                     <img src="assets/uploaded/' . $row['away_team_logo'] . '" alt="' . $row['away_team_name'] . '" style="width:50px; height:50px;" class="me-3 my-2">
-                        <p class="card-text mt-4 my-0">' . $row['away_team_score'] .'</p>
+                        <p class="card-text mt-4 my-0">' . htmlspecialchars($row['away_team_score']) .'</p>
                         <p class="card-text mt-4 my-0 mx-2">|</p>
-                        <p class="card-text mt-4 my-0">' . $row['away_team_name'] .'</p>
+                        <p class="card-text mt-4 my-0">' . htmlspecialchars($row['away_team_name']) .'</p>
                     </div>
-                    <p class="card-text text-navy mt-3 mb-0">' . $row['match_date'] . '</p>
+                    <p class="card-text text-navy mt-3 mb-0">' . htmlspecialchars($row['match_date']) . '</p>
                 </div>
             </a>
         </div>    

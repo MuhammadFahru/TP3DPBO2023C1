@@ -61,9 +61,9 @@ $no = 1;
 while ($div = $coach->getResult()) {
     $data .= '<tr>
     <th scope="row">' . $no . '</th>
-        <td class="text-start ps-3">' . $div['coach_name'] . '</td>
-        <td>' . $div['coach_nationality'] . '</td>
-        <td>' . $div['team_name'] . '</td>
+        <td class="text-start ps-3">' . htmlspecialchars($div['coach_name']) . '</td>
+        <td>' . htmlspecialchars($div['coach_nationality']) . '</td>
+        <td>' . htmlspecialchars($div['team_name']) . '</td>
         <td style="font-size: 22px;">
             <a style = "text-decoration:none;" href="coach.php?id=' . $div['coach_id'] . '" title="Edit Data">
                 <i class="bi bi-pencil-square text-warning"></i>
