@@ -19,7 +19,7 @@ class Matches extends DB
 
     function getMatchesById($id)
     {
-        $query = "SELECT matches.*, home.team_name AS home_team_name, away.team_name AS away_team_name, home.team_logo AS home_team_logo, away.team_logo AS away_team_logo FROM matches
+        $query = "SELECT matches.*, home.team_id AS home_team_id, away.team_id AS away_team_id, home.team_name AS home_team_name, away.team_name AS away_team_name, home.team_logo AS home_team_logo, away.team_logo AS away_team_logo FROM matches
             JOIN teams home ON matches.home_team_id = home.team_id
             JOIN teams away ON matches.away_team_id = away.team_id
             WHERE match_id = $id";

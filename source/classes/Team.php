@@ -14,7 +14,7 @@ class Team extends DB
         return $this->execute($query);
     }
 
-    function searchPlayer($keyword)
+    function searchTeam($keyword)
     {
         $query = "SELECT * FROM teams WHERE team_name LIKE '%$keyword%' OR team_home_stadium LIKE '%$keyword%'";
         return $this->execute($query);
@@ -22,9 +22,9 @@ class Team extends DB
 
     function addTeam($data, $file)
     {
-        $tmp_file = $file['file_image']['tmp_name'];
-        $team_logo = $file['file_image']['name'];
-        $dir = "assets/uploaded/team/$team_logo";
+        $tmp_file = $file['team_logo']['tmp_name'];
+        $team_logo = $file['team_logo']['name'];
+        $dir = "assets/uploaded/$team_logo";
         move_uploaded_file($tmp_file, $dir);
 
         $team_name = $data['team_name'];
@@ -36,14 +36,14 @@ class Team extends DB
 
     function updateTeam($id, $data, $file, $oldfile)
     {
-        $tmp_file = $file['file_image']['tmp_name'];
-        $team_logo = $file['file_image']['name'];
+        $tmp_file = $file['team_logo']['tmp_name'];
+        $team_logo = $file['team_logo']['name'];
 
         if ($team_logo == "") {
             $team_logo = $oldfile;
         }
 
-        $dir = "assets/uploaded/team/$team_logo";
+        $dir = "assets/uploaded/$team_logo";
         move_uploaded_file($tmp_file, $dir);
 
         $team_name = $data['team_name'];

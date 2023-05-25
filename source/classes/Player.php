@@ -4,7 +4,7 @@ class Player extends DB
 {
     function getPlayerJoin()
     {
-        $query = "SELECT * FROM players JOIN teams ON players.team_id = teams.team_id ORDER BY players.player_id";
+        $query = "SELECT players.*, teams.team_name FROM players JOIN teams ON players.team_id = teams.team_id ORDER BY players.player_id";
         return $this->execute($query);
     }
 
@@ -16,13 +16,19 @@ class Player extends DB
 
     function getPlayerById($id)
     {
-        $query = "SELECT * FROM players JOIN teams ON players.team_id = teams.team_id WHERE player_id = $id";
+        $query = "SELECT players.*, teams.team_name FROM players JOIN teams ON players.team_id = teams.team_id WHERE player_id = $id";
+        return $this->execute($query);
+    }
+
+    function getPlayerByIdTeam($id)
+    {
+        $query = "SELECT players.* FROM players JOIN teams ON players.team_id = teams.team_id WHERE players.team_id = $id";
         return $this->execute($query);
     }
 
     function searchPlayer($keyword)
     {
-        $query = "SELECT * FROM players JOIN teams ON players.team_id = teams.team_id WHERE players.player_name LIKE '%$keyword%' OR players.player_position LIKE '%$keyword%' OR teams.team_name LIKE '%$keyword%'";
+        $query = "SELECT players.*, teams.team_name FROM players JOIN teams ON players.team_id = teams.team_id WHERE players.player_name LIKE '%$keyword%' OR players.player_position LIKE '%$keyword%' OR teams.team_name LIKE '%$keyword%'";
         return $this->execute($query);
     }
 

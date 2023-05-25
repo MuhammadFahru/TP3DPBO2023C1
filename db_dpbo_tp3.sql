@@ -11,7 +11,7 @@
  Target Server Version : 100427 (10.4.27-MariaDB)
  File Encoding         : 65001
 
- Date: 25/05/2023 23:59:39
+ Date: 27/05/2023 02:43:20
 */
 
 SET NAMES utf8mb4;
@@ -29,7 +29,7 @@ CREATE TABLE `coaches`  (
   PRIMARY KEY (`coach_id`) USING BTREE,
   INDEX `team_id`(`team_id` ASC) USING BTREE,
   CONSTRAINT `coaches_ibfk_1` FOREIGN KEY (`team_id`) REFERENCES `teams` (`team_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of coaches
@@ -37,6 +37,7 @@ CREATE TABLE `coaches`  (
 INSERT INTO `coaches` VALUES (1, 'Ole Gunnar Solskjaer', 'Norwegian', 1);
 INSERT INTO `coaches` VALUES (2, 'Jürgen Klopp', 'German', 2);
 INSERT INTO `coaches` VALUES (3, 'Thomas Tuchel', 'German', 3);
+INSERT INTO `coaches` VALUES (4, 'Michael Arteta', 'Spanyol', 4);
 
 -- ----------------------------
 -- Table structure for matches
@@ -55,16 +56,16 @@ CREATE TABLE `matches`  (
   INDEX `away_team_id`(`away_team_id` ASC) USING BTREE,
   CONSTRAINT `matches_ibfk_1` FOREIGN KEY (`home_team_id`) REFERENCES `teams` (`team_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `matches_ibfk_2` FOREIGN KEY (`away_team_id`) REFERENCES `teams` (`team_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of matches
 -- ----------------------------
 INSERT INTO `matches` VALUES (1, 1, 2, '2023-01-01', 'Old Trafford', 2, 1);
 INSERT INTO `matches` VALUES (2, 2, 3, '2023-02-01', 'Anfield', 0, 0);
-INSERT INTO `matches` VALUES (3, 3, 1, '2023-03-01', 'Stamford Bridge', 1, 1);
-INSERT INTO `matches` VALUES (4, 2, 1, '2023-05-11', 'Anfield', 3, 4);
 INSERT INTO `matches` VALUES (5, 4, 1, '2023-05-05', '02 Stadium', 2, 1);
+INSERT INTO `matches` VALUES (6, 3, 1, '2023-03-01', 'Stamford Bridge', 1, 1);
+INSERT INTO `matches` VALUES (7, 3, 1, '2023-05-04', 'Stamford Bridge', 4, 2);
 
 -- ----------------------------
 -- Table structure for players
@@ -79,14 +80,23 @@ CREATE TABLE `players`  (
   PRIMARY KEY (`player_id`) USING BTREE,
   INDEX `team_id`(`team_id` ASC) USING BTREE,
   CONSTRAINT `players_ibfk_1` FOREIGN KEY (`team_id`) REFERENCES `teams` (`team_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of players
 -- ----------------------------
-INSERT INTO `players` VALUES (1, 'Harry Kane', 'Forward', '1993-07-28', 1);
+INSERT INTO `players` VALUES (1, 'Marcus Rashford', 'Forward', '1993-07-28', 1);
 INSERT INTO `players` VALUES (2, 'Mohamed Salah', 'Forward', '1992-06-15', 2);
 INSERT INTO `players` VALUES (3, 'NGolo Kante', 'Midfielder', '1991-03-29', 3);
+INSERT INTO `players` VALUES (5, 'De Gea', 'Goalkeeper', '1990-07-29', 1);
+INSERT INTO `players` VALUES (6, 'Harry Maguaire', 'Defender', '1984-04-28', 1);
+INSERT INTO `players` VALUES (7, 'Casemiro', 'Midfielder', '1985-07-12', 1);
+INSERT INTO `players` VALUES (8, 'Alisson Becker', 'Goalkeeper', '1994-04-28', 2);
+INSERT INTO `players` VALUES (9, 'Henderson', 'Midfielder', '1987-10-28', 2);
+INSERT INTO `players` VALUES (10, 'Virgil Van Djk', 'Defender', '1990-11-29', 2);
+INSERT INTO `players` VALUES (11, 'Kepa Arizabalaga', 'Goalkeeper', '1991-03-10', 3);
+INSERT INTO `players` VALUES (12, 'Thiago SIlva', 'Defender', '1985-09-12', 3);
+INSERT INTO `players` VALUES (13, 'Kai Havertz', 'Forward', '1993-04-20', 3);
 
 -- ----------------------------
 -- Table structure for teams
@@ -99,14 +109,14 @@ CREATE TABLE `teams`  (
   `team_founded_date` date NULL DEFAULT NULL,
   `team_home_stadium` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`team_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of teams
 -- ----------------------------
-INSERT INTO `teams` VALUES (1, 'Manchester United', 'logo1.jpg', '1878-01-01', 'Old Trafford');
-INSERT INTO `teams` VALUES (2, 'Liverpool', 'logo2.jpg', '1892-06-03', 'Anfield');
-INSERT INTO `teams` VALUES (3, 'Chelsea', 'logo3.jpg', '1905-03-10', 'Stamford Bridge');
-INSERT INTO `teams` VALUES (4, 'Arsenal', 'logo4.jpg', '1915-03-15', '02 Stadium');
+INSERT INTO `teams` VALUES (1, 'Manchester United', 'united.png', '1878-01-01', 'Old Trafford');
+INSERT INTO `teams` VALUES (2, 'Liverpool', 'liverpool.png', '1892-06-03', 'Anfield');
+INSERT INTO `teams` VALUES (3, 'Chelsea', 'chelsea.png', '1905-03-10', 'Stamford Bridge');
+INSERT INTO `teams` VALUES (4, 'Arsenal', 'arsenal.png', '1915-03-15', '02 Stadium');
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -29,22 +29,23 @@ $data = null;
 // gabungkan dgn tag html
 // untuk di passing ke skin/template
 while ($row = $listMatches->getResult()) {
-    $data .= '<div class="col-lg-3 mb-5">' .
-        '<div class="card px-2 matches-thumbnail">
+    $data .= '<div class="col-4 mb-3">' .
+        '<div class="card px-2 w-100">
             <a href="detail.php?id=' . $row['match_id'] . '">
                 <div class="card-body">
                     <div class="d-flex justify-content-start">
-                        <p class="card-text my-0">' . $row['home_team_score'] .'</p>
-                        <p class="card-text my-0 mx-2">|</p>
-                        <p class="card-text my-0">' . $row['home_team_name'] .'</p>
+                        <img src="assets/uploaded/' . $row['home_team_logo'] . '" alt="' . $row['home_team_name'] . '" style="width:50px; height:50px;" class="me-3 my-2">
+                        <p class="card-text mt-4 my-0">' . $row['home_team_score'] .'</p>
+                        <p class="card-text mt-4 my-0 mx-2">|</p>
+                        <p class="card-text mt-4 my-0">' . $row['home_team_name'] .'</p>
                     </div>
                     <div class="d-flex justify-content-start">
-                        <p class="card-text my-0">' . $row['away_team_score'] .'</p>
-                        <p class="card-text my-0 mx-2">|</p>
-                        <p class="card-text my-0">' . $row['away_team_name'] .'</p>
+                    <img src="assets/uploaded/' . $row['away_team_logo'] . '" alt="' . $row['away_team_name'] . '" style="width:50px; height:50px;" class="me-3 my-2">
+                        <p class="card-text mt-4 my-0">' . $row['away_team_score'] .'</p>
+                        <p class="card-text mt-4 my-0 mx-2">|</p>
+                        <p class="card-text mt-4 my-0">' . $row['away_team_name'] .'</p>
                     </div>
-                    <p class="card-text mt-3 mb-0">' . $row['match_date'] . '</p>
-                    <p class="card-text">' . $row['match_location'] . '</p>
+                    <p class="card-text text-navy mt-3 mb-0">' . $row['match_date'] . '</p>
                 </div>
             </a>
         </div>    
@@ -59,4 +60,5 @@ $home = new Template('templates/skin.html');
 
 // simpan data ke template
 $home->replace('DATA_MATCHES', $data);
+$home->replace('LINK', 'index.php');
 $home->write();
