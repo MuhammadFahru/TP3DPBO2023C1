@@ -13,6 +13,8 @@ Bismillah Saya Muhammad Fahru Rozi [2108927] mengerjakan soal Tugas Praktikum 3 
 
 ## Desain Program
 
+![desain_db](https://github.com/MuhammadFahru/TP3DPBO2023C1/assets/59097913/6c3e1688-e567-4c80-b311-dd05c2586d1c)
+
 Program yang saya buat yaitu Sistem EPL (English Premier League), berikut adalah desain yang saya rancang:
 
 Tabel teams:
@@ -54,4 +56,14 @@ Tabel matches digunakan untuk menyimpan informasi tentang pertandingan-pertandin
 
 ## Alur Program
 
-...
+- Terdapat 4 Menu pada navbar yaitu **Matches(home)**, **Team**, **Players**, dan **Coaches**
+- Pada home page menampilkan daftar match EPL, terdapat fitur search dan button **Tambah Matches** untuk direct ke form matches
+- Jika salah satu data di klik, maka akan direct ke halaman detail matches
+- Pada detail page, detal data matches semua ditampilkan meliputi nama team, logo team, score, tanggal pertandingan, lokasi pertandingan, daftar player
+- Untuk halaman team, terdapat tabel yang menampilkan data-data team yang ada di EPL. Di halaman ini juga terdapat form untuk tambah data dan pada setiap datanya terdapat aksi untuk edit dan delete
+- Untuk halaman players, terdapat tabel yang menampilkan data-data players yang ada di EPL. Di halaman ini juga terdapat form untuk tambah data dan pada setiap datanya terdapat aksi untuk edit dan delete
+- Untuk halaman coaches, terdapat tabel yang menampilkan data-data coaches yang ada di EPL. Di halaman ini juga terdapat form untuk tambah data dan pada setiap datanya terdapat aksi untuk edit dan delete
+
+## Dokumentasi
+
+https://github.com/MuhammadFahru/TP3DPBO2023C1/assets/59097913/e1ca4c38-051d-4527-a88e-16b0919c9f9d
