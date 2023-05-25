@@ -4,9 +4,9 @@ class Matches extends DB
 {
     function getMatchesJoin()
     {
-        $query = "SELECT * FROM matches
-            JOIN teams AS home ON matches.home_team_id = home.team_id
-            JOIN teams AS away ON matches.away_team_id = away.team_id
+        $query = "SELECT matches.*, home.team_name AS home_team_name, away.team_name AS away_team_name, home.team_logo AS home_team_logo, away.team_logo AS away_team_logo FROM matches
+            JOIN teams home ON matches.home_team_id = home.team_id
+            JOIN teams away ON matches.away_team_id = away.team_id
             ORDER BY matches.match_id";
         return $this->execute($query);
     }
@@ -19,18 +19,18 @@ class Matches extends DB
 
     function getMatchesById($id)
     {
-        $query = "SELECT * FROM matches
-            JOIN teams AS home ON matches.home_team_id = home.team_id
-            JOIN teams AS away ON matches.away_team_id = away.team_id
+        $query = "SELECT matches.*, home.team_name AS home_team_name, away.team_name AS away_team_name, home.team_logo AS home_team_logo, away.team_logo AS away_team_logo FROM matches
+            JOIN teams home ON matches.home_team_id = home.team_id
+            JOIN teams away ON matches.away_team_id = away.team_id
             WHERE match_id = $id";
         return $this->execute($query);
     }
 
     function searchMatches($keyword)
     {
-        $query = "SELECT * FROM matches
-            JOIN teams AS home ON matches.home_team_id = home.team_id
-            JOIN teams AS away ON matches.away_team_id = away.team_id
+        $query = "SELECT matches.*, home.team_name AS home_team_name, away.team_name AS away_team_name, home.team_logo AS home_team_logo, away.team_logo AS away_team_logo FROM matches
+            JOIN teams home ON matches.home_team_id = home.team_id
+            JOIN teams away ON matches.away_team_id = away.team_id
             WHERE home.team_name LIKE '%$keyword%' OR away.team_name LIKE '%$keyword%' OR matches.match_location LIKE '%$keyword%'";
         return $this->execute($query);
     }

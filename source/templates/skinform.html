@@ -113,45 +113,53 @@
                 <form method="POST" enctype="multipart/form-data" id="data">
 
                     <div class="mb-3 row">
-                        <label for="nama_agent" class="col-sm-2 col-form-label">Nama Agent</label>
+                        <label for="home_team_id" class="col-sm-2 col-form-label">Home Team</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="nama_agent" value="NAMA_DATA" required>
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label for="biografi" class="col-sm-2 col-form-label">Biografi Agent</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="biografi" value="DESKRIPSI_DATA" required>
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label for="file" class="col-sm-2 col-form-label">Foto</label>
-                        <div class="col-sm-10">
-                            <input class="form-control" type="file" name="file_image" value="IMAGE_DATA">
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label for="id_role" class="col-sm-2 col-form-label">Role</label>
-                        <div class="col-sm-10">
-                            <select class="form-select" name="id_role" required>
-                                <option selected>-- Pilih Role --</option>
-                                ROLEAGENT_OPTIONS
+                            <select class="form-select" name="home_team_id" required>
+                                <option selected>-- Select Team --</option>
+                                TEAM_OPTIONS
                             </select>
                         </div>
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="id_senjata" class="col-sm-2 col-form-label">Senjata</label>
+                        <label for="away_team_id" class="col-sm-2 col-form-label">Away Team</label>
                         <div class="col-sm-10">
-                            <select class="form-select" name="id_senjata" required>
-                                <option selected>-- Pilih Senjata --</option>
-                                SENJATA_OPTIONS
+                            <select class="form-select" name="away_team_id" required>
+                                <option selected>-- Select Team --</option>
+                                TEAM_OPTIONS
                             </select>
                         </div>
                     </div>
+
+                    <div class="mb-3 row">
+                        <label for="match_date" class="col-sm-2 col-form-label">Match Date</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" name="match_date" value="MATCH_DATE_DATA" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="match_location" class="col-sm-2 col-form-label">Match Location</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="match_location" value="MATCH_LOCATION_DATA" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="home_team_score" class="col-sm-2 col-form-label">Home Team Score</label>
+                        <div class="col-sm-10">
+                            <input type="number" min="0" class="form-control" name="home_team_score" value="HOME_TEAM_SCORE_DATA" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="away_team_score" class="col-sm-2 col-form-label">Away Team Score</label>
+                        <div class="col-sm-10">
+                            <input type="number" min="0" class="form-control" name="away_team_score" value="AWAY_TEAM_SCORE_DATA" required>
+                        </div>
+                    </div>
+
                 </form>
             </div>
             <div class="card-footer text-end">
