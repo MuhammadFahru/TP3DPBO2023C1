@@ -11,7 +11,7 @@
  Target Server Version : 100427 (10.4.27-MariaDB)
  File Encoding         : 65001
 
- Date: 25/05/2023 23:57:29
+ Date: 25/05/2023 23:59:39
 */
 
 SET NAMES utf8mb4;
@@ -55,7 +55,7 @@ CREATE TABLE `matches`  (
   INDEX `away_team_id`(`away_team_id` ASC) USING BTREE,
   CONSTRAINT `matches_ibfk_1` FOREIGN KEY (`home_team_id`) REFERENCES `teams` (`team_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `matches_ibfk_2` FOREIGN KEY (`away_team_id`) REFERENCES `teams` (`team_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of matches
@@ -64,6 +64,7 @@ INSERT INTO `matches` VALUES (1, 1, 2, '2023-01-01', 'Old Trafford', 2, 1);
 INSERT INTO `matches` VALUES (2, 2, 3, '2023-02-01', 'Anfield', 0, 0);
 INSERT INTO `matches` VALUES (3, 3, 1, '2023-03-01', 'Stamford Bridge', 1, 1);
 INSERT INTO `matches` VALUES (4, 2, 1, '2023-05-11', 'Anfield', 3, 4);
+INSERT INTO `matches` VALUES (5, 4, 1, '2023-05-05', '02 Stadium', 2, 1);
 
 -- ----------------------------
 -- Table structure for players
@@ -98,7 +99,7 @@ CREATE TABLE `teams`  (
   `team_founded_date` date NULL DEFAULT NULL,
   `team_home_stadium` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`team_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of teams
@@ -106,5 +107,6 @@ CREATE TABLE `teams`  (
 INSERT INTO `teams` VALUES (1, 'Manchester United', 'logo1.jpg', '1878-01-01', 'Old Trafford');
 INSERT INTO `teams` VALUES (2, 'Liverpool', 'logo2.jpg', '1892-06-03', 'Anfield');
 INSERT INTO `teams` VALUES (3, 'Chelsea', 'logo3.jpg', '1905-03-10', 'Stamford Bridge');
+INSERT INTO `teams` VALUES (4, 'Arsenal', 'logo4.jpg', '1915-03-15', '02 Stadium');
 
 SET FOREIGN_KEY_CHECKS = 1;

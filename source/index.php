@@ -29,7 +29,7 @@ $data = null;
 // gabungkan dgn tag html
 // untuk di passing ke skin/template
 while ($row = $listMatches->getResult()) {
-    $data .= '<div class="col-lg-3">' .
+    $data .= '<div class="col-lg-3 mb-5">' .
         '<div class="card px-2 matches-thumbnail">
             <a href="detail.php?id=' . $row['match_id'] . '">
                 <div class="card-body">
